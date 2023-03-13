@@ -1,15 +1,18 @@
 
-The following describes the structure of yml file for CI with CMake.
+To use Github Actions with a CMake project, we define the structure of the yml file. 
+The file is located in `.github/actions` directory at the root of the repository.
+Its defintion is as follows:
 
 ## Name, Triggers and Enviroment.
 
-Apart from the name, we also provide the triggers. 
-In the following configuration, a build and test is triggered  when 
+First section of the yml file lists the name of the action and the triggers. 
+In the following configuration, a build, test and CI job is triggered  when 
 (A)  commit is pushed to the master branch and 
 (B) a pull request is created for the master branch.
 
-The `workflow_dispatch` option is useful to initiate a Build, Test and CI 
-workflow without the trigger action.
+The `workflow_dispatch` option under the `on` sub-head is useful to 
+initiate a Build, Test and CI job from the Github->Actions dashboard
+without a trigger action.
 
 We use the `Debug` environment so that the necessary compilation options
 required for building with symbols are set for coverage to be estimated 
@@ -43,7 +46,8 @@ jobs:
   Build-Test:
     runs-on: ubuntu-latest
 ```
-All of the following  steps in the workflow are defined underneath a `steps` subheader.
+All of the following  steps in the workflow are defined underneath a `steps` subheader 
+of the `jobs` header.
 
 ## Setup Enviroment
 
@@ -90,7 +94,7 @@ Perform Static analysis with cpp check and publish the report to the repository.
 ```
 ## Running coverage and Updating in codecov
 
-To compute and upload coverage we do the following steps
+To compute and upload coverage, the following steps are defined.
  1. Run lcov to generate coverage
  2. Report code coverage
  3. Uploading to Codecov
@@ -116,8 +120,8 @@ To compute and upload coverage we do the following steps
         verbose: true
 ```
 
-Here the first step `make lcov2` is building a traget defined in the CMake file. 
-The target executes the following commands.
+The first step `make lcov2` builds the traget `lcov2` defined in 
+the CMakeLists.txt file. This target executes the following commands.
 
 ```
 lcov -c -d ./ -o FastANITest.info
