@@ -24,17 +24,35 @@ Make sure to add Recursive options, if the repository depends on t
 ![Additional Repo Details](/images/scm_recur.png)
 
 
-##  Build Configuration
+##  Build, Test and Coverage
 
-Build step uses a CMake/CTest Step, for which we select the following options.
+Build step uses a CMake/CTest Step, a Build Step, a Test Step and finally, a coverage Step.
 
-## CMake configuration
+## CMake Configure.
+
+Use the Debug configure so that the necessary options for generating code with symbols is accomplished.
+
 ![](/images/build_cmake.png)
 
-## CMake Build and Test
+## CMake Build
+
+Use the default options for building.
 
 ![](/images/build_make.png)
 
-## CMake Coverage
+## CMake Test
 
-![](/images/build_coverage.png)
+Use the CTest option for testing.
+
+![](/images/build_test.png)
+
+
+## Coverage with lcov
+
+Here we use coverage with lcov, with the nessary commands already provided in CMakeLists.txt.
+
+```
+lcov
+```
+
+![](/images/build_lcov.png)
