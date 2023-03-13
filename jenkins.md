@@ -27,8 +27,11 @@ Make sure to add Recursive options, if the repository depends on t
 ##  Build, Test and Coverage
 
 Build step uses a CMake/CTest Step, a Build Step, a Test Step and finally, a coverage Step.
+First we select the CMake as build step.
 
-## CMake Configure.
+![](/images/build_cmake_options.png)
+
+## CMake Configure and Build.
 
 Use the Debug configure so that the necessary options for generating code with symbols is accomplished.
 
@@ -36,7 +39,7 @@ Use the Debug configure so that the necessary options for generating code with s
 
 ## CMake Build
 
-Use the default options for building.
+Click "Add Build Tool Invocation" and use the default options for building.
 
 ![](/images/build_make.png)
 
