@@ -49,10 +49,12 @@ Use the CTest option for testing.
 
 ## Coverage with lcov
 
-Here we use coverage with lcov, with the nessary commands already provided in CMakeLists.txt.
-
+Here we use coverage with lcov. In our case, we use a target in CMakeLists.txt which executes the  following commands.
 ```
-lcov
+lcov -c -d ./ -o FastANITest.info
+lcov -e FastANITest.info "*/FastANI/src/*/*.cpp" "*/FastANI/src/*/*.hpp"  > coverage.info
+lcov --list coverage.info |tee coverage_list.txt
+lcov --summary coverage.info |tee coverage_summary.txt
 ```
 
 ![](/images/build_lcov.png)
