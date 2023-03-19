@@ -1,11 +1,8 @@
 # Jenkins for CMake
 
-We use a Free-style Project in Jenkins.
+This document describes the use of CMake project for Jenkins CI. We use a **Free-style Project** in Jenkins.
 
-
-## Required Plugins
-
-For jenkins, the [**CMake Builder**](https://plugins.jenkins.io/cmakebuilder/) plugin needs to be installed in jenkins server.
+For configuring a CMake project, the [**CMake Builder**](https://plugins.jenkins.io/cmakebuilder/) plugin needs to be installed in jenkins server.
 
 'Configure' for a free-style project contains the following sections
 1. General
@@ -17,28 +14,29 @@ For jenkins, the [**CMake Builder**](https://plugins.jenkins.io/cmakebuilder/) p
 
 In the General section, we add a description of the project and provide options to throttle builds or execute concurrent builds.
 
-For this project, we keep the default 'Build Triggers' and 'Build Environemnt'. Also, there are no post-build actions steps. Other sections are defined as follows:
+For this project, we keep the default settings for 'Build Triggers' and 'Build Environemnt'. Other sections are defined as follows:
 
 ##  SCM Configuration
 
-Select Git for the SCM and select the following options:
+We select Git for the SCM and provide the following options:
 
 ### Link to the Repository
 
-Add link to the git repository and provide branch information, if it is different.
+Add link to the git repository and provide branch information, if it is different from the `master` branch.
 
 ![Link to Repository](/images/scm_link.png)
 
 ### Add Recursive 
 
-Make sure to add Recursive options, if the repository depends on third-party software added through a git submdodlue
+Make sure to select the `Recursively Update submodules` option, if the repository contains submodules such as third-party software for testing.
+
 
 ![Additional Repo Details](/images/scm_recur.png)
 
 
 ##  Build, Test and Coverage
 
-Build step uses thtee build steps:
+We define the following three steps for build, test and coverage:
 1. A CMake Step including the Build,
 2. A CTest Step and finally, 
 3. A step for running the coverage coverage dtep.
