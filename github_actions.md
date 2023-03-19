@@ -163,6 +163,6 @@ Build and CI Badges can be added to the repository README.md as follows:
 
 ```
 ![Build with CMake and Test](https://github.com/srirampc/FastANI/actions/workflows/main.yml/badge.svg)
-[![codecov](https://codecov.io/gh/srirampc/FastANI/branch/sei-spring2023/graph/badge.svg?token=B7YFZ56BW2)](https://codecov.io/gh/srirampc/FastANI)
+[![codecov](https://codecov.io/gh/srirampc/FastANI/branch/master/graph/badge.svg?token=B7YFZ56BW2)](https://codecov.io/gh/srirampc/FastANI)
 ```
 
